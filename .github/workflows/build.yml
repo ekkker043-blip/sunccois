@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches: [ "**" ]
+    tags:     [ "v*" ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed for the Release step on tag pushes
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B -U -ntp clean package
+
+      - name: Collect jars
+        run: |
+          mkdir -p dist
+          find paper-plugin/target    -maxdepth 1 -name "SunccoisEconomy-Paper-*.jar"    ! -name "original-*" -exec cp {} dist/ \;
+          find velocity-plugin/target -maxdepth 1 -name "SunccoisEconomy-Velocity-*.jar" ! -name "original-*" -exec cp {} dist/ \;
+          ls -la dist
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: SunccoisEconomy-jars
+          path: dist/*.jar
+          if-no-files-found: error
+
+      - name: Create GitHub Release (on version tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.jar
+          generate_release_notes: true

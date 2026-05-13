@@ -1,0 +1,53 @@
+# =========================================================
+# SunccoisEconomy — Paper plugin configuration
+# =========================================================
+
+# Unique identifier of THIS backend server. Must be different
+# on every Paper instance behind Velocity. It is used in the
+# audit log so you can see where a transaction happened.
+server-name: "lobby"
+
+database:
+  host: "127.0.0.1"
+  port: 3306
+  database: "sunccois"
+  username: "sunccois"
+  password: "change_me"
+  # Extra connection properties. Leave as-is unless you know what you are doing.
+  properties: "useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&rewriteBatchedStatements=true"
+  pool:
+    maximum-pool-size: 10
+    minimum-idle: 2
+    connection-timeout-ms: 5000
+    idle-timeout-ms: 600000
+    max-lifetime-ms: 1800000
+
+economy:
+  # Starting balance for a brand-new player row.
+  starting-balance: 0
+  # Hard cap to prevent overflow shenanigans (max = Long.MAX_VALUE).
+  # Keep comfortably below Long.MAX_VALUE (9_223_372_036_854_775_807).
+  maximum-balance: 1000000000000
+  # Read-side cache TTL in seconds. Writes always bypass this cache.
+  # Lower = less staleness, higher = less DB load. 5s is a safe default.
+  read-cache-ttl-seconds: 5
+
+messages:
+  prefix: "&6[Eco] &r"
+  no-permission: "&cУ тебя нет прав на эту команду."
+  player-not-found: "&cИгрок &e%player% &cникогда не заходил на сервер."
+  invalid-amount: "&cКоличество должно быть положительным целым числом."
+  amount-too-big: "&cСлишком большая сумма."
+  balance-self: "&aТвой баланс: &e%amount% &7монет."
+  balance-other: "&aБаланс &e%player%&a: &e%amount% &7монет."
+  given: "&aВыдано &e%amount% &aмонет игроку &e%player%&a. Новый баланс: &e%new%&a."
+  taken: "&aСнято &e%amount% &aмонет с игрока &e%player%&a. Новый баланс: &e%new%&a."
+  reset: "&aБаланс игрока &e%player% &aсброшен в 0."
+  not-enough: "&cУ игрока &e%player% &cнедостаточно монет (&e%have%&c)."
+  cap-exceeded: "&cОперация превысит лимит баланса."
+  db-error: "&cОшибка базы данных. Попробуйте ещё раз."
+  usage: |
+    &6/eco give <ник> <кол-во> &7— выдать монеты
+    &6/eco take <ник> <кол-во> &7— забрать монеты
+    &6/eco reset <ник> &7— обнулить баланс
+    &6/eco get <ник> &7— посмотреть баланс

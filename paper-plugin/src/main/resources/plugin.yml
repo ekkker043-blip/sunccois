@@ -1,0 +1,22 @@
+name: SunccoisEconomy
+version: ${project.version}
+main: dev.sunccois.economy.paper.SunccoisEconomyPlugin
+api-version: '1.20'
+author: sunccois
+description: MySQL-backed cross-server coin economy with anti-dupe guarantees.
+softdepend: [PlaceholderAPI]
+commands:
+  eco:
+    description: Economy administration commands.
+    usage: /eco <give|take|reset|get> <player> [amount]
+    aliases: [economy, sunccoin]
+permissions:
+  sunccois.eco.admin:
+    description: Full administrative access (give/take/reset).
+    default: op
+  sunccois.eco.get:
+    description: Check another player's balance.
+    default: op
+  sunccois.eco.self:
+    description: Check own balance.
+    default: true
