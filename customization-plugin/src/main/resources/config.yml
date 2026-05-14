@@ -1,0 +1,561 @@
+items:
+  particle:
+    name: ' &6{name}'
+    lore:
+      - ' &f'
+      - ' &#ff7000 ▶ &fЛКМ — Применить эффект'
+      - ' &f'
+    lore_active:
+      - ' &f'
+      - ' &#00d8ff ▶ &fЛКМ — Отключить эффект'
+      - ' &f'
+  sound:
+    name: ' &x&f&f&7&0&0&0{name}'
+    lore:
+      - ' &f'
+      - ' &#00d8ff ▶ &fПКМ — Открыть настройки эффекта'
+      - ' &#ff2222 ▶ &fЛКМ — Отменить эффект'
+      - ' &f'
+    lore2:
+      - ' &f'
+      - ' &#ff7000 ▶ &fЛКМ — Применить эффект'
+      - ' &f'
+  prem_particle:
+    name: ' &#ff7000{name}'
+    lore:
+      - ' &f'
+      - ' &#ff7000 ▶ &fЛКМ — Применить эффект'
+      - ' &f'
+    lore_active:
+      - ' &f'
+      - ' &#00d8ff ▶ &fЛКМ — Отключить эффект'
+      - ' &f'
+    lore_premium:
+      - ' &f'
+      - ' &#ff7000 ▶ &fЛКМ — Применить эффект'
+      - ' &f'
+      - ' &#ff2222 ▶ &fОбратитесь к администрации'
+      - ' &#ff2222   за выдачей эффекта.'
+      - ' &f'
+
+hitsounds:
+  items:
+    panda:
+      material: MUSIC_DISC_STAL
+      slot: 18
+      sound: ENTITY_PANDA_SNEEZE
+      name: Панда чихает
+    anvil_land:
+      material: MUSIC_DISC_STAL
+      slot: 19
+      sound: BLOCK_ANVIL_LAND
+      name: Удар наковальни
+    bell:
+      material: MUSIC_DISC_STAL
+      slot: 20
+      sound: BLOCK_BELL_USE
+      name: Звон колокола
+    amethyst:
+      material: MUSIC_DISC_11
+      slot: 21
+      sound: BLOCK_AMETHYST_BLOCK_HIT
+      name: Удар аметиста
+    blaze:
+      material: MUSIC_DISC_11
+      slot: 22
+      sound: ENTITY_BLAZE_SHOOT
+      name: Выстрел ифрита
+    note_pling:
+      material: MUSIC_DISC_11
+      slot: 23
+      sound: BLOCK_NOTE_BLOCK_PLING
+      name: Плинг
+    note_chime:
+      material: MUSIC_DISC_STAL
+      slot: 24
+      sound: BLOCK_NOTE_BLOCK_CHIME
+      name: Перезвон
+    enderman_tp:
+      material: MUSIC_DISC_STAL
+      slot: 25
+      sound: ENTITY_ENDERMAN_TELEPORT
+      name: Телепортация эндермена
+    experience:
+      material: MUSIC_DISC_STAL
+      slot: 26
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      name: Подбор опыта
+    glass_break:
+      material: MUSIC_DISC_11
+      slot: 27
+      sound: BLOCK_GLASS_BREAK
+      name: Разбитие стекла
+    arrow_hit:
+      material: MUSIC_DISC_11
+      slot: 28
+      sound: ENTITY_ARROW_HIT_PLAYER
+      name: Попадание стрелы
+    wither_shoot:
+      material: MUSIC_DISC_STAL
+      slot: 29
+      sound: ENTITY_WITHER_SHOOT
+      name: Выстрел визера
+    trident_hit:
+      material: MUSIC_DISC_STAL
+      slot: 30
+      sound: ITEM_TRIDENT_HIT
+      name: Удар трезубца
+    phantom_bite:
+      material: MUSIC_DISC_11
+      slot: 31
+      sound: ENTITY_PHANTOM_BITE
+      name: Укус фантома
+    shulker_hit:
+      material: MUSIC_DISC_STAL
+      slot: 32
+      sound: ENTITY_SHULKER_BULLET_HIT
+      name: Снаряд шалкера
+    illusioner_mirror:
+      material: MUSIC_DISC_STRAD
+      slot: 33
+      sound: ENTITY_ILLUSIONER_PREPARE_MIRROR
+      name: Подготовка зеркала иллюзионистом
+      premium: true
+    evoker_prepare:
+      material: MUSIC_DISC_STRAD
+      slot: 34
+      sound: ENTITY_EVOKER_PREPARE_SUMMON
+      name: Призыв вызывателя
+      premium: true
+    dolphin:
+      material: MUSIC_DISC_STRAD
+      slot: 35
+      sound: ENTITY_DOLPHIN_PLAY
+      name: Дельфин играет
+      premium: true
+
+deathme:
+  items:
+    fox_death:
+      material: MUSIC_DISC_STAL
+      slot: 18
+      sound: ENTITY_FOX_DEATH
+      name: Лиса умирает
+    player_death:
+      material: MUSIC_DISC_STAL
+      slot: 19
+      sound: ENTITY_PLAYER_DEATH
+      name: Игрок умирает
+    ocelot_death:
+      material: MUSIC_DISC_STAL
+      slot: 20
+      sound: ENTITY_OCELOT_DEATH
+      name: Оцелот умирает
+    wither_spawn:
+      material: MUSIC_DISC_11
+      slot: 21
+      sound: ENTITY_WITHER_SPAWN
+      name: Призыв визера
+    thunder:
+      material: MUSIC_DISC_11
+      slot: 22
+      sound: ENTITY_LIGHTNING_BOLT_THUNDER
+      name: Раскат грома
+    dragon_growl:
+      material: MUSIC_DISC_11
+      slot: 23
+      sound: ENTITY_ENDER_DRAGON_GROWL
+      name: Рык дракона
+    totem_use:
+      material: MUSIC_DISC_STAL
+      slot: 24
+      sound: ITEM_TOTEM_USE
+      name: Тотем бессмертия
+    elder_curse:
+      material: MUSIC_DISC_STAL
+      slot: 25
+      sound: ENTITY_ELDER_GUARDIAN_CURSE
+      name: Проклятие стража
+    phantom_death:
+      material: MUSIC_DISC_STAL
+      slot: 26
+      sound: ENTITY_PHANTOM_DEATH
+      name: Фантом умирает
+    ghast_scream:
+      material: MUSIC_DISC_11
+      slot: 27
+      sound: ENTITY_GHAST_SCREAM
+      name: Крик гаста
+    anvil_land_death:
+      material: MUSIC_DISC_11
+      slot: 28
+      sound: BLOCK_ANVIL_LAND
+      name: Удар наковальни
+
+deathplayer:
+  items:
+    fox_death:
+      material: MUSIC_DISC_STAL
+      slot: 18
+      sound: ENTITY_FOX_DEATH
+      name: Лиса умирает
+    player_death:
+      material: MUSIC_DISC_STAL
+      slot: 19
+      sound: ENTITY_PLAYER_DEATH
+      name: Смерть игрока
+    ocelot_death:
+      material: MUSIC_DISC_STAL
+      slot: 20
+      sound: ENTITY_OCELOT_DEATH
+      name: Оцелот умирает
+    blaze_shoot:
+      material: MUSIC_DISC_11
+      slot: 21
+      sound: ENTITY_BLAZE_SHOOT
+      name: Выстрел ифрита
+    dragon_death:
+      material: MUSIC_DISC_11
+      slot: 22
+      sound: ENTITY_ENDER_DRAGON_DEATH
+      name: Смерть дракона
+    wither_death:
+      material: MUSIC_DISC_11
+      slot: 23
+      sound: ENTITY_WITHER_DEATH
+      name: Смерть визера
+    levelup:
+      material: MUSIC_DISC_STAL
+      slot: 24
+      sound: ENTITY_PLAYER_LEVELUP
+      name: Повышение уровня
+    firework:
+      material: MUSIC_DISC_STAL
+      slot: 25
+      sound: ENTITY_FIREWORK_ROCKET_BLAST
+      name: Фейерверк
+    wolf_howl:
+      material: MUSIC_DISC_STAL
+      slot: 26
+      sound: ENTITY_WOLF_HOWL
+      name: Вой волка
+    raid_horn:
+      material: MUSIC_DISC_11
+      slot: 27
+      sound: EVENT_RAID_HORN
+      name: Горн рейда
+
+lowheal:
+  items:
+    bass:
+      material: MUSIC_DISC_STAL
+      slot: 18
+      sound: BLOCK_NOTE_BLOCK_BASS
+      name: Нотный блок
+    guardian_attack:
+      material: MUSIC_DISC_STAL
+      slot: 19
+      sound: ENTITY_GUARDIAN_ATTACK
+      name: Атака стража
+    beacon_activate:
+      material: MUSIC_DISC_STAL
+      slot: 20
+      sound: BLOCK_BEACON_ACTIVATE
+      name: Активация маяка
+    warden_heartbeat:
+      material: MUSIC_DISC_11
+      slot: 21
+      sound: ENTITY_WARDEN_HEARTBEAT
+      name: Сердцебиение хранителя
+    respawn_anchor:
+      material: MUSIC_DISC_11
+      slot: 22
+      sound: BLOCK_RESPAWN_ANCHOR_CHARGE
+      name: Зарядка якоря
+    conduit:
+      material: MUSIC_DISC_11
+      slot: 23
+      sound: BLOCK_CONDUIT_ACTIVATE
+      name: Активация кондуита
+    note_bass_drum:
+      material: MUSIC_DISC_STAL
+      slot: 24
+      sound: BLOCK_NOTE_BLOCK_BASEDRUM
+      name: Бас-барабан
+
+particles:
+  # Icons swapped to dye materials per the screenshot 6 layout.
+  items:
+    cloud:
+      material: LIGHT_GRAY_DYE
+      slot: 18
+      particle: CLOUD
+      name: "&7Облако"
+    redstone:
+      material: RED_DYE
+      slot: 19
+      particle: REDSTONE
+      color: RED
+      name: "&cКрасные частицы"
+    flame:
+      material: ORANGE_DYE
+      slot: 20
+      particle: FLAME
+      name: "&6Пламя"
+    soul_flame:
+      material: CYAN_DYE
+      slot: 21
+      particle: SOUL_FIRE_FLAME
+      name: "&bОгонь душ"
+    dragon_breath:
+      material: PURPLE_DYE
+      slot: 22
+      particle: DRAGON_BREATH
+      name: "&5Дыхание дракона"
+    end_rod:
+      material: WHITE_DYE
+      slot: 23
+      particle: END_ROD
+      name: "&eКонцевой стержень"
+    totem:
+      material: YELLOW_DYE
+      slot: 24
+      particle: TOTEM
+      name: "&aТотем"
+    snowflake:
+      material: LIGHT_BLUE_DYE
+      slot: 25
+      particle: SNOWFLAKE
+      name: "&bСнежинка"
+    smoke:
+      material: GRAY_DYE
+      slot: 26
+      particle: SMOKE_NORMAL
+      name: "&7Дым"
+    lava_drip:
+      material: ORANGE_DYE
+      slot: 27
+      particle: DRIP_LAVA
+      name: "&cКапли лавы"
+    water_drip:
+      material: BLUE_DYE
+      slot: 28
+      particle: DRIP_WATER
+      name: "&9Капли воды"
+    villager_happy:
+      material: LIME_DYE
+      slot: 29
+      particle: VILLAGER_HAPPY
+      name: "&aСчастье"
+    enchantment:
+      material: MAGENTA_DYE
+      slot: 30
+      particle: ENCHANTMENT_TABLE
+      name: "&dЗачарование"
+    heart:
+      material: PINK_DYE
+      slot: 31
+      particle: HEART
+      name: "&cСердца"
+    portal:
+      material: PURPLE_DYE
+      slot: 32
+      particle: PORTAL
+      name: "&5Портал"
+    electric_spark:
+      material: YELLOW_DYE
+      slot: 33
+      particle: ELECTRIC_SPARK
+      name: "&eИскра"
+    squid_ink:
+      material: BLACK_DYE
+      slot: 34
+      particle: SQUID_INK
+      name: "&0Чернила"
+    falling_dust:
+      material: BROWN_DYE
+      slot: 35
+      particle: FALLING_DUST
+      name: "&eПадающая пыль"
+
+pearlparticles:
+  # Premium tab now exposes only two effects.
+  # The legacy "deathparticles" / "killparticles" sections were removed.
+  items:
+    hologram:
+      slot: 18
+      particle: END_ROD
+      name: "&#FFA500Голограмма в воздухе"
+      material: END_ROD
+    dragon_breath:
+      slot: 19
+      particle: DRAGON_BREATH
+      name: "&#FFA500Драконье дыхание"
+      material: DRAGON_BREATH
+
+deathparticles:
+  items:
+    dragon_breath:
+      slot: 18
+      particle: DRAGON_BREATH
+      name: "&5Дыхание дракона"
+      material: DRAGON_BREATH
+    soul_fire:
+      slot: 19
+      particle: SOUL_FIRE_FLAME
+      name: "&dПламя душ"
+      material: SOUL_TORCH
+    cloud:
+      slot: 20
+      particle: CLOUD
+      name: "&fОблако"
+      material: WHITE_WOOL
+    totem:
+      slot: 21
+      particle: TOTEM
+      name: "&aТотем"
+      material: TOTEM_OF_UNDYING
+    end_rod:
+      slot: 22
+      particle: END_ROD
+      name: "&eКонцевой стержень"
+      material: END_ROD
+    snowflake:
+      slot: 23
+      particle: SNOWFLAKE
+      name: "&bСнежинка"
+      material: SNOW_BLOCK
+    portal:
+      slot: 24
+      particle: PORTAL
+      name: "&5Портал"
+      material: OBSIDIAN
+    smoke:
+      slot: 25
+      particle: SMOKE_NORMAL
+      name: "&7Дым"
+      material: GUNPOWDER
+
+killparticles:
+  items:
+    dragon_breath:
+      slot: 18
+      particle: DRAGON_BREATH
+      name: "&5Дыхание дракона"
+      material: DRAGON_BREATH
+    soul_fire:
+      slot: 19
+      particle: SOUL_FIRE_FLAME
+      name: "&dПламя душ"
+      material: SOUL_TORCH
+    flame:
+      slot: 20
+      particle: FLAME
+      name: "&6Пламя"
+      material: BLAZE_POWDER
+    totem:
+      slot: 21
+      particle: TOTEM
+      name: "&aТотем"
+      material: TOTEM_OF_UNDYING
+    end_rod:
+      slot: 22
+      particle: END_ROD
+      name: "&eКонцевой стержень"
+      material: END_ROD
+    snowflake:
+      slot: 23
+      particle: SNOWFLAKE
+      name: "&bСнежинка"
+      material: SNOW_BLOCK
+    cloud:
+      slot: 24
+      particle: CLOUD
+      name: "&fОблако"
+      material: WHITE_WOOL
+    portal:
+      slot: 25
+      particle: PORTAL
+      name: "&5Портал"
+      material: OBSIDIAN
+
+# Star levels - donation thresholds in rubles
+stars:
+  levels:
+    1:
+      cost: 1000
+      color: "&c"
+      hex: "#FF5555"
+      bonus: "+1 дополнительный голос (/vote)"
+    2:
+      cost: 5000
+      color: "&6"
+      hex: "#FFAA00"
+      bonus: "+2 дополнительных голоса (/vote)"
+    3:
+      cost: 15000
+      color: "&e"
+      hex: "#FFFF55"
+      bonus: "+3 дополнительных голоса (/vote)"
+    4:
+      cost: 25000
+      color: "&a"
+      hex: "#55FF55"
+      bonus: "+4 дополнительных голоса (/vote)"
+    5:
+      cost: 50000
+      color: "&d"
+      hex: "#FF55FF"
+      bonus: "+5 дополнительных голосов (/vote)"
+    6:
+      cost: 75000
+      color: "&5"
+      hex: "#AA00AA"
+      bonus: "+6 дополнительных голосов (/vote)"
+    7:
+      cost: 100000
+      color: "&b"
+      hex: "#55FFFF"
+      bonus: "+7 дополнительных голосов (/vote)"
+    8:
+      cost: 125000
+      color: "&3"
+      hex: "#00AAAA"
+      bonus: "+8 дополнительных голосов (/vote)"
+    9:
+      cost: 200000
+      color: "&1"
+      hex: "#0000AA"
+      bonus: "+9 дополнительных голосов (/vote)"
+    10:
+      cost: 500000
+      color: "&f"
+      hex: "#FFFFFF"
+      bonus: "+10 дополнительных голосов (/vote)"
+    11:
+      cost: 1000000
+      color: "&f"
+      hex: "#FFFFFF"
+      animated: true
+      rainbow: true
+      bonus: "+11 дополнительных голосов (/vote), радужная анимированная звезда"
+
+messages:
+  acceptparticle: '&#00d8ff▶ &fВыбраны частицы: &6{particle}'
+  removeparticle: '&#ff2222▶ &fЧастицы отключены.'
+  acceptsound: '&#00d8ff▶ &fВыбран звук: &6{sound}'
+  removesound: '&#ff2222▶ &fЗвук отключен.'
+  nopremium: '&#ff2222▶ &fЭтот эффект выдаётся за работу в команде сервера.'
+  premiumgiven: '&#00d8ff▶ &fПремиум выдан игроку &6{player}&f.'
+  premiumremoved: '&#ff2222▶ &fПремиум убран у игроку &6{player}&f.'
+  stargiven: '&#ffc900▶ &fИгроку &6{player} &fначислено &6{amount}₽ &fпожертвований.'
+  needstar: '&#ff2222✖ &fДля активации цвета необходима &6{level} звезда статуса&f.'
+  adminonly: '&#ff2222▶ &fЭтот эффект доступен только администратору.'
+  premiumexpired: '&#ff2222▶ &fСрок действия премиум истёк.'
+
+database:
+  type: sqlite
+  host: " "
+  name: "custom"
+  username: "root"
+  password: " "

@@ -1,0 +1,37 @@
+name: CraftoriumCustom
+version: 1.6
+main: ru.craftorium.craftoriumcustom.CraftoriumCustom
+api-version: "1.16"
+author: Craftorium
+description: Custom particles, sounds, skins, nickname colors, and star status plugin
+softdepend:
+  - PlaceholderAPI
+commands:
+  custom:
+    description: Open the customization menu or manage stars/premium
+    usage: |
+      /custom — открыть меню кастомизации
+      /custom give star <ник> <уровень> — выдать звезду
+      /custom give premium <ник> <1d|12h|30m|1w> — выдать премиум
+      /custom star <ник> <рубли> — начислить рубли
+      /custom reload — перезагрузить конфиг
+    aliases:
+      - cus
+      - cust
+      - customization
+permissions:
+  stickhwcustom.prem:
+    description: Access to premium features
+    default: false
+  stickhwcustom.star.give:
+    description: Ability to give star points and levels
+    default: op
+  stickhwcustom.premium.give:
+    description: Ability to give/revoke premium status
+    default: op
+  stickhwcustom.reload:
+    description: Ability to reload config
+    default: op
+  stickhwcustom.admin.particle:
+    description: Access to admin-only particle effects
+    default: op
