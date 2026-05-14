@@ -71,13 +71,15 @@ implements Listener {
                 CraftoriumCustom.this.saveAllPlayerDataAsync();
             }
         }.runTaskTimerAsynchronously((Plugin)this, 0L, 2400L);
-        // Check premium expirations every minute and revoke expired permissions.
+        // Check premium expirations once a second so the revocation feels
+        // instant. The loop just compares two longs per online player, so the
+        // tick cost is negligible.
         new BukkitRunnable() {
 
             public void run() {
                 PremiumUtil.enforceExpirations();
             }
-        }.runTaskTimer((Plugin) this, 1200L, 1200L);
+        }.runTaskTimer((Plugin) this, 20L, 20L);
     }
 
     private void registerEvents() {

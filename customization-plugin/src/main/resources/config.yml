@@ -531,8 +531,14 @@ stars:
       cost: 500000
       color: "&f"
       hex: "#FFFFFF"
+      bonus: "+10 дополнительных голосов (/vote)"
+    11:
+      cost: 1000000
+      color: "&f"
+      hex: "#FFFFFF"
       animated: true
-      bonus: "+10 дополнительных голосов (/vote), анимированная звезда"
+      rainbow: true
+      bonus: "+11 дополнительных голосов (/vote), радужная анимированная звезда"
 
 messages:
   acceptparticle: '&#00d8ff▶ &fВыбраны частицы: &6{particle}'

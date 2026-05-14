@@ -63,8 +63,8 @@ public class MainMenu {
                 p.sendMessage(HexUtil.translate(msg));
             }
         }));
-        // Nickname color is now opened by everyone — premium acts as a master
-        // key that unlocks every preset inside ColorNameMenu regardless of star.
+        // The nickname-colour menu opens for everyone, but each colour inside
+        // is gated by the player's star level only (premium does not bypass).
         this.buttons.add(new Button(29, this.items.nickcolor(), e -> {
             ColorNameMenu colorNameMenu = new ColorNameMenu(this.items);
             colorNameMenu.open((Player)e.getWhoClicked());

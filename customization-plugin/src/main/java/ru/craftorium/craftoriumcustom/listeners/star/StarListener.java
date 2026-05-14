@@ -14,7 +14,9 @@ import ru.craftorium.craftoriumcustom.utils.HexUtil;
 
 public class StarListener
 implements Listener {
-    private static final int[] STAR_SLOTS = new int[]{12, 13, 14, 20, 21, 22, 23, 24, 39, 41};
+    // Index in this array maps to (level - 1). Slot 40 is the new animated
+    // level-11 star sitting between the level-9 (slot 39) and level-10 (slot 41) stars.
+    private static final int[] STAR_SLOTS = new int[]{12, 13, 14, 20, 21, 22, 23, 24, 39, 41, 40};
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {

@@ -7,8 +7,11 @@ import java.util.Locale;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.InventoryView;
 import ru.craftorium.craftoriumcustom.CraftoriumCustom;
 import ru.craftorium.craftoriumcustom.db.DatabaseManager;
+import ru.craftorium.craftoriumcustom.holders.PremPearlMenuHolder;
 
 /**
  * Helpers around premium subscription handling:
@@ -187,7 +190,14 @@ public final class PremiumUtil {
         return true;
     }
 
-    /** Revokes premium permission and clears the expiration entry. */
+    /**
+     * Revokes premium permission and clears every premium-tied piece of state
+     * for the player so the change is felt instantly:
+     *  - removes the LuckPerms permission;
+     *  - clears the expiration entry;
+     *  - clears the saved pearl particle (premium-only effect);
+     *  - closes the Premium menu if the player is currently looking at it.
+     */
     public static void revoke(Player player) {
         if (player == null) {
             return;
@@ -195,6 +205,17 @@ public final class PremiumUtil {
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
                 "lp user " + player.getName() + " permission unset stickhwcustom.prem");
         writeExpiration(player, 0L);
+        // Premium-only data: pearl particle effect.
+        CraftoriumCustom.removePlayerData(player, "pearl_particle");
+        // If the player is currently in the Premium menu, kick them out so the
+        // UI reflects the change immediately.
+        InventoryView open = player.getOpenInventory();
+        if (open != null && open.getTopInventory() != null) {
+            InventoryHolder holder = open.getTopInventory().getHolder();
+            if (holder instanceof PremPearlMenuHolder) {
+                player.closeInventory();
+            }
+        }
     }
 
     /**

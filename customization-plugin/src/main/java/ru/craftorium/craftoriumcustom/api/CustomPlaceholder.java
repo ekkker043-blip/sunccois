@@ -12,6 +12,47 @@ import ru.craftorium.craftoriumcustom.utils.HexUtil;
 import ru.craftorium.craftoriumcustom.utils.PremiumUtil;
 
 public class CustomPlaceholder extends PlaceholderExpansion {
+    // Cached colour palette for the animated star (level 11). Built lazily on
+    // the first request and reused on every subsequent placeholder evaluation.
+    // The placeholder is in the hot path (called for every tab refresh / chat
+    // message), so we must NOT allocate a new array per call.
+    private static volatile String[] rainbowPalette;
+    // How fast the rainbow cycles. 250ms = 4 colour steps per second.
+    private static final long RAINBOW_STEP_MS = 250L;
+
+    private static String[] palette() {
+        String[] p = rainbowPalette;
+        if (p != null) {
+            return p;
+        }
+        synchronized (CustomPlaceholder.class) {
+            if (rainbowPalette != null) {
+                return rainbowPalette;
+            }
+            String[] built = new String[10];
+            for (int i = 0; i < 10; i++) {
+                built[i] = CraftoriumCustom.getInstance().getConfig()
+                        .getString("stars.levels." + (i + 1) + ".hex", "#FFFFFF");
+            }
+            rainbowPalette = built;
+            return built;
+        }
+    }
+
+    /** Invalidates the cached palette so /cust reload can pick up new colours. */
+    public static void invalidatePaletteCache() {
+        rainbowPalette = null;
+    }
+
+    private static String currentRainbowHex() {
+        String[] p = palette();
+        int idx = (int) ((System.currentTimeMillis() / RAINBOW_STEP_MS) % (long) p.length);
+        if (idx < 0) {
+            idx = 0;
+        }
+        return p[idx];
+    }
+
     public String getIdentifier() {
         return "stickhwcustom";
     }
@@ -21,7 +62,7 @@ public class CustomPlaceholder extends PlaceholderExpansion {
     }
 
     public String getVersion() {
-        return "1.4";
+        return "1.6";
     }
 
     public boolean persist() {
@@ -49,9 +90,12 @@ public class CustomPlaceholder extends PlaceholderExpansion {
                 starLevel = Integer.parseInt(data.getOrDefault("star_level", "0"));
             } catch (NumberFormatException ignored) {
             }
-            // bold if has star OR has premium permission (cosmetic chat color available regardless of star)
-            boolean bold = starLevel > 0 || player.hasPermission("stickhwcustom.prem");
-            return this.colorizeNickname(player.getName(), color, "#FFFFFF", bold);
+            // Colour is gated by star level only \u2014 premium no longer
+            // auto-grants the bold colour.
+            if (starLevel <= 0) {
+                return player.getName();
+            }
+            return this.colorizeNickname(player.getName(), color, "#FFFFFF", true);
         }
         // Numeric star level: hide entirely (empty) if no star.
         if (params.equalsIgnoreCase("star")) {
@@ -77,41 +121,21 @@ public class CustomPlaceholder extends PlaceholderExpansion {
             return data.getOrDefault("star_points", "0");
         }
         if (params.equalsIgnoreCase("star_symbol")) {
-            int level;
-            HashMap<String, String> data = CraftoriumCustom.getPlayerData(player);
-            if (data == null) {
-                return "";
-            }
-            String levelStr = data.getOrDefault("star_level", "0");
-            try {
-                level = Integer.parseInt(levelStr);
-            } catch (NumberFormatException e) {
-                level = 0;
-            }
+            int level = readStarLevel(player);
             if (level <= 0) {
                 return "";
             }
-            String hex = CraftoriumCustom.getInstance().getConfig().getString("stars.levels." + level + ".hex", "#FFFFFF");
+            String hex = starHex(level);
             return HexUtil.translate("&#" + hex.replace("#", "") + "\u2b50");
         }
         // Star prefix that includes its own trailing space if the player has a star.
         // Used to avoid "empty leading space" in chat formats like "%stickhwcustom_star_prefix%%player_name%".
         if (params.equalsIgnoreCase("star_prefix")) {
-            int level;
-            HashMap<String, String> data = CraftoriumCustom.getPlayerData(player);
-            if (data == null) {
-                return "";
-            }
-            String levelStr = data.getOrDefault("star_level", "0");
-            try {
-                level = Integer.parseInt(levelStr);
-            } catch (NumberFormatException e) {
-                level = 0;
-            }
+            int level = readStarLevel(player);
             if (level <= 0) {
                 return "";
             }
-            String hex = CraftoriumCustom.getInstance().getConfig().getString("stars.levels." + level + ".hex", "#FFFFFF");
+            String hex = starHex(level);
             return HexUtil.translate("&#" + hex.replace("#", "") + "\u2b50 ");
         }
         if (params.equalsIgnoreCase("premium")) {
@@ -146,5 +170,31 @@ public class CustomPlaceholder extends PlaceholderExpansion {
             coloredNickname.addExtra((BaseComponent) letter);
         }
         return TextComponent.toLegacyText(new BaseComponent[]{coloredNickname});
+    }
+
+    /** Reads the player's star level from their cached data; 0 on any issue. */
+    private static int readStarLevel(Player player) {
+        HashMap<String, String> data = CraftoriumCustom.getPlayerData(player);
+        if (data == null) {
+            return 0;
+        }
+        try {
+            return Integer.parseInt(data.getOrDefault("star_level", "0"));
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
+    /**
+     * Returns the hex colour for a given star level. Level 11 is animated and
+     * cycles through the colours of levels 1-10; every other level reads its
+     * fixed hex from config.
+     */
+    private static String starHex(int level) {
+        if (level == 11) {
+            return currentRainbowHex();
+        }
+        return CraftoriumCustom.getInstance().getConfig()
+                .getString("stars.levels." + level + ".hex", "#FFFFFF");
     }
 }

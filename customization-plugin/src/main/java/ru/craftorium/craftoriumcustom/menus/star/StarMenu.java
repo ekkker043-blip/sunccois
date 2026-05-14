@@ -31,6 +31,7 @@ public class StarMenu {
         int cost8 = CraftoriumCustom.getInstance().getConfig().getInt("stars.levels.8.cost", 125000);
         int cost9 = CraftoriumCustom.getInstance().getConfig().getInt("stars.levels.9.cost", 200000);
         int cost10 = CraftoriumCustom.getInstance().getConfig().getInt("stars.levels.10.cost", 500000);
+        int cost11 = CraftoriumCustom.getInstance().getConfig().getInt("stars.levels.11.cost", 1000000);
         inventory.setItem(12, this.starItem.getStar(Material.RED_SHULKER_BOX, "&#FF5555", cost1, 1, player));
         inventory.setItem(13, this.starItem.getStar(Material.ORANGE_SHULKER_BOX, "&#FFAA00", cost2, 2, player));
         inventory.setItem(14, this.starItem.getStar(Material.YELLOW_SHULKER_BOX, "&#FFFF55", cost3, 3, player));
@@ -41,6 +42,7 @@ public class StarMenu {
         inventory.setItem(24, this.starItem.getStar(Material.CYAN_SHULKER_BOX, "&#00AAAA", cost8, 8, player));
         inventory.setItem(39, this.starItem.getStar(Material.BLUE_SHULKER_BOX, "&#0000AA", cost9, 9, player));
         inventory.setItem(41, this.starItem.getStar(Material.WHITE_SHULKER_BOX, "&#FFFFFF", cost10, 10, player));
+        inventory.setItem(40, this.starItem.getStar(Material.NETHER_STAR, "&#FF55FF", cost11, 11, player));
         inventory.setItem(45, this.items.getStarHelp());
         inventory.setItem(53, this.items.back());
         player.openInventory(inventory);

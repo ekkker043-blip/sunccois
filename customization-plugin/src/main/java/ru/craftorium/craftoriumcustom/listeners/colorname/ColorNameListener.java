@@ -70,10 +70,10 @@ implements Listener {
                     // empty catch block
                 }
             }
-            // Premium acts as a master key — premium players bypass the star requirement
-            // and can pick any color regardless of how many stars they have.
-            boolean hasPrem = player.hasPermission("stickhwcustom.prem");
-            if (!hasPrem && playerStar < requiredStar) {
+            // Star-only gating: a player can pick a colour only if their star
+            // level is >= the colour's required level. Premium no longer
+            // bypasses this requirement.
+            if (playerStar < requiredStar) {
                 String msg = CraftoriumCustom.getInstance().getConfig().getString("messages.needstar", "&#ff2222\u2716 &f\u0414\u043b\u044f \u0430\u043a\u0442\u0438\u0432\u0430\u0446\u0438\u0438 \u0446\u0432\u0435\u0442\u0430 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u0430 &6{level} \u0437\u0432\u0435\u0437\u0434\u0430 \u0441\u0442\u0430\u0442\u0443\u0441\u0430&f.");
                 msg = msg.replace("{level}", MenuItems.convertInt(requiredStar) + " (" + requiredStar + " \u0443\u0440.)");
                 player.sendMessage(HexUtil.translate(msg));
