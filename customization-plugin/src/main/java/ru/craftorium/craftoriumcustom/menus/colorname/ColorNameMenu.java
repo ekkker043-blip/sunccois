@@ -26,6 +26,8 @@ public class ColorNameMenu {
         inventory.setItem(32, this.items.getNameItem(Material.RED_SHULKER_BOX, "&x&F&F&0&0&0&0", "#FF0000", 7, player.getName()));
         inventory.setItem(33, this.items.getNameItem(Material.MAGENTA_SHULKER_BOX, "&x&F&F&0&0&9&5", "#FF0095", 8, player.getName()));
         inventory.setItem(40, this.items.getNameItem(Material.WHITE_SHULKER_BOX, "&x&F&F&F&F&F&F", "#FFFFFF", 9, player.getName()));
+        inventory.setItem(45, this.items.back());
+        inventory.setItem(53, this.items.resetItem());
         player.openInventory(inventory);
     }
 }

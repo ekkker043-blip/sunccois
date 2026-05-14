@@ -39,6 +39,14 @@ implements Listener {
             CraftoriumCustom.mainMenu.open(player);
             return;
         }
+        if (slot == 53) {
+            // Reset color — clears the stored name_color and re-opens the menu.
+            CraftoriumCustom.removePlayerData(player, "name_color");
+            player.sendMessage(HexUtil.translate(
+                    "&#ff2222\u25b6 &f\u0426\u0432\u0435\u0442 \u043d\u0438\u043a\u043d\u0435\u0439\u043c\u0430 \u0441\u0431\u0440\u043e\u0448\u0435\u043d."));
+            new ColorNameMenu(CraftoriumCustom.menuItems).open(player);
+            return;
+        }
         ItemStack item = e.getCurrentItem();
         if (item == null || !item.hasItemMeta()) {
             return;

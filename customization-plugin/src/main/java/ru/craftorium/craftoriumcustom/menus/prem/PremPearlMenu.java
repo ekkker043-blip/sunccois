@@ -18,11 +18,13 @@ public class PremPearlMenu {
 
     public void open(Player player) {
         int i;
-        Inventory inventory = Bukkit.createInventory((InventoryHolder)new PremPearlMenuHolder(), (int)54, (String)"\u0427\u0430\u0441\u0442\u0438\u0446\u044b \u0436\u0435\u043c\u0447\u0443\u0433\u0430");
+        Inventory inventory = Bukkit.createInventory((InventoryHolder)new PremPearlMenuHolder(), (int)54, (String)"\u041f\u0440\u0435\u043c\u0438\u0443\u043c");
+        // Only one banner-tab now \u2014 the DeathPlayer / DeathMe sub-tabs were removed
+        // and this menu owns the only premium effect list.
         for (i = 0; i <= 1; ++i) {
             inventory.setItem(i, this.items.blue());
         }
-        for (i = 7; i <= 8; ++i) {
+        for (i = 3; i <= 8; ++i) {
             inventory.setItem(i, this.items.blue());
         }
         for (i = 9; i <= 17; ++i) {
@@ -35,8 +37,6 @@ public class PremPearlMenu {
             inventory.setItem(i, this.items.orange());
         }
         inventory.setItem(2, this.items.banner());
-        inventory.setItem(3, this.items.banner1());
-        inventory.setItem(4, this.items.banner2());
         inventory.setItem(45, this.items.back());
         inventory.setItem(53, this.items.resetItem());
         if (CraftoriumCustom.getInstance().getConfig().contains("pearlparticles.items")) {

@@ -19,14 +19,16 @@ public class ParticleMenu {
     public void open(Player player) {
         int i;
         Inventory inventory = Bukkit.createInventory((InventoryHolder)new ParticleMenuHolder(), (int)54, (String)"\u0427\u0430\u0441\u0442\u0438\u0446\u044b");
-        // Top row: blue glass on edges, banner tabs in the middle to match the
-        // visual style of PremPearlMenu (screenshot 3).
-        for (i = 0; i <= 1; ++i) {
-            inventory.setItem(i, this.items.blue());
+        // Top row layout copied from screenshot 6: blue, blue, banner1, gray, gray,
+        // gray, gray, ender_chest, blue.
+        inventory.setItem(0, this.items.blue());
+        inventory.setItem(1, this.items.blue());
+        inventory.setItem(2, this.items.banner_crit());
+        for (i = 3; i <= 6; ++i) {
+            inventory.setItem(i, this.items.gray());
         }
-        for (i = 5; i <= 8; ++i) {
-            inventory.setItem(i, this.items.blue());
-        }
+        inventory.setItem(7, this.items.particleInfo());
+        inventory.setItem(8, this.items.blue());
         for (i = 9; i <= 17; ++i) {
             inventory.setItem(i, this.items.gray());
         }
@@ -36,9 +38,6 @@ public class ParticleMenu {
         for (i = 45; i <= 53; ++i) {
             inventory.setItem(i, this.items.orange());
         }
-        inventory.setItem(2, this.items.banner());
-        inventory.setItem(3, this.items.banner1());
-        inventory.setItem(4, this.items.banner2());
         inventory.setItem(45, this.items.back());
         inventory.setItem(53, this.items.resetItem());
         if (CraftoriumCustom.getInstance().getConfig().contains("particles.items")) {

@@ -18,6 +18,8 @@ import ru.craftorium.craftoriumcustom.menus.prem.PremPearlMenu;
 import ru.craftorium.craftoriumcustom.menus.skins.SkinsMenu;
 import ru.craftorium.craftoriumcustom.menus.sounds.SoundHitMenu;
 import ru.craftorium.craftoriumcustom.menus.star.StarMenu;
+import ru.craftorium.craftoriumcustom.utils.HexUtil;
+import ru.craftorium.craftoriumcustom.CraftoriumCustom;
 
 public class MainMenu {
     private final MenuItems items;
@@ -46,10 +48,19 @@ public class MainMenu {
             ParticleMenu particleMenu = new ParticleMenu(this.items);
             particleMenu.open((Player)e.getWhoClicked());
         }));
+        // Premium tab is gated by the stickhwcustom.prem permission. Players
+        // without premium get a clear feedback message; effects themselves are
+        // also locked behind the same permission inside PremPearlListener.
         this.buttons.add(new Button(13, this.items.premka(), e -> {
-            if (e.getWhoClicked().hasPermission("stickhwcustom.prem")) {
+            Player p = (Player)e.getWhoClicked();
+            if (p.hasPermission("stickhwcustom.prem")) {
                 PremPearlMenu premPearlMenu = new PremPearlMenu(this.items);
-                premPearlMenu.open((Player)e.getWhoClicked());
+                premPearlMenu.open(p);
+            } else {
+                String msg = CraftoriumCustom.getInstance().getConfig().getString(
+                        "messages.nopremium",
+                        "&#ff2222\u25b6 &f\u042d\u0442\u043e\u0442 \u0440\u0430\u0437\u0434\u0435\u043b \u0442\u0440\u0435\u0431\u0443\u0435\u0442 \u043f\u0440\u0435\u043c\u0438\u0443\u043c.");
+                p.sendMessage(HexUtil.translate(msg));
             }
         }));
         // Nickname color is now opened by everyone — premium acts as a master

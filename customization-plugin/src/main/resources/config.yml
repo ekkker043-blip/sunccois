@@ -284,6 +284,7 @@ lowheal:
       name: Бас-барабан
 
 particles:
+  # Icons swapped to dye materials per the screenshot 6 layout.
   items:
     cloud:
       material: LIGHT_GRAY_DYE
@@ -297,143 +298,100 @@ particles:
       color: RED
       name: "&cКрасные частицы"
     flame:
-      material: BLAZE_POWDER
+      material: ORANGE_DYE
       slot: 20
       particle: FLAME
       name: "&6Пламя"
     soul_flame:
-      material: SOUL_TORCH
+      material: CYAN_DYE
       slot: 21
       particle: SOUL_FIRE_FLAME
       name: "&bОгонь душ"
     dragon_breath:
-      material: DRAGON_BREATH
+      material: PURPLE_DYE
       slot: 22
       particle: DRAGON_BREATH
       name: "&5Дыхание дракона"
     end_rod:
-      material: END_ROD
+      material: WHITE_DYE
       slot: 23
       particle: END_ROD
       name: "&eКонцевой стержень"
     totem:
-      material: TOTEM_OF_UNDYING
+      material: YELLOW_DYE
       slot: 24
       particle: TOTEM
       name: "&aТотем"
     snowflake:
-      material: SNOW_BLOCK
+      material: LIGHT_BLUE_DYE
       slot: 25
       particle: SNOWFLAKE
       name: "&bСнежинка"
     smoke:
-      material: GUNPOWDER
+      material: GRAY_DYE
       slot: 26
       particle: SMOKE_NORMAL
       name: "&7Дым"
     lava_drip:
-      material: MAGMA_CREAM
+      material: ORANGE_DYE
       slot: 27
       particle: DRIP_LAVA
       name: "&cКапли лавы"
     water_drip:
-      material: PRISMARINE_CRYSTALS
+      material: BLUE_DYE
       slot: 28
       particle: DRIP_WATER
       name: "&9Капли воды"
     villager_happy:
-      material: EMERALD
+      material: LIME_DYE
       slot: 29
       particle: VILLAGER_HAPPY
       name: "&aСчастье"
     enchantment:
-      material: ENCHANTING_TABLE
+      material: MAGENTA_DYE
       slot: 30
       particle: ENCHANTMENT_TABLE
       name: "&dЗачарование"
     heart:
-      material: RED_DYE
+      material: PINK_DYE
       slot: 31
       particle: HEART
       name: "&cСердца"
     portal:
-      material: OBSIDIAN
+      material: PURPLE_DYE
       slot: 32
       particle: PORTAL
       name: "&5Портал"
     electric_spark:
-      material: LIGHTNING_ROD
+      material: YELLOW_DYE
       slot: 33
       particle: ELECTRIC_SPARK
       name: "&eИскра"
     squid_ink:
-      material: INK_SAC
+      material: BLACK_DYE
       slot: 34
       particle: SQUID_INK
       name: "&0Чернила"
     falling_dust:
-      material: SAND
+      material: BROWN_DYE
       slot: 35
       particle: FALLING_DUST
       name: "&eПадающая пыль"
 
 pearlparticles:
+  # Premium tab now exposes only two effects.
+  # The legacy "deathparticles" / "killparticles" sections were removed.
   items:
-    dragon_breath:
+    hologram:
       slot: 18
-      particle: DRAGON_BREATH
-      name: "&5Дыхание дракона"
-      material: DRAGON_BREATH
-    flame:
-      slot: 19
-      particle: FLAME
-      name: "&cПламя"
-      material: BLAZE_POWDER
-    soul_flame:
-      slot: 20
-      particle: SOUL_FIRE_FLAME
-      name: "&bОгонь душ"
-      material: SOUL_TORCH
-    end_rod:
-      slot: 21
       particle: END_ROD
-      name: "&eКонцевой стержень"
+      name: "&#FFA500Голограмма в воздухе"
       material: END_ROD
-    totem:
-      slot: 22
-      particle: TOTEM
-      name: "&aТотем"
-      material: TOTEM_OF_UNDYING
-    cloud:
-      slot: 23
-      particle: CLOUD
-      name: "&fОблако"
-      material: WHITE_WOOL
-    snowflake:
-      slot: 24
-      particle: SNOWFLAKE
-      name: "&bСнежинка"
-      material: SNOW_BLOCK
-    smoke:
-      slot: 25
-      particle: SMOKE_NORMAL
-      name: "&7Дым"
-      material: GUNPOWDER
-    portal:
-      slot: 26
-      particle: PORTAL
-      name: "&5Портал"
-      material: OBSIDIAN
-    heart:
-      slot: 27
-      particle: HEART
-      name: "&cСердца"
-      material: RED_DYE
-    enchantment:
-      slot: 28
-      particle: ENCHANTMENT_TABLE
-      name: "&dЗачарование"
-      material: ENCHANTING_TABLE
+    dragon_breath:
+      slot: 19
+      particle: DRAGON_BREATH
+      name: "&#FFA500Драконье дыхание"
+      material: DRAGON_BREATH
 
 deathparticles:
   items:

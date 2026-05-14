@@ -17,8 +17,6 @@ import ru.craftorium.craftoriumcustom.CraftoriumCustom;
 import ru.craftorium.craftoriumcustom.holders.PremPearlMenuHolder;
 import ru.craftorium.craftoriumcustom.items.MenuItems;
 import ru.craftorium.craftoriumcustom.manager.ConfigManager;
-import ru.craftorium.craftoriumcustom.menus.prem.PremDeathMeMenu;
-import ru.craftorium.craftoriumcustom.menus.prem.PremDeathPlayerMenu;
 import ru.craftorium.craftoriumcustom.menus.prem.PremPearlMenu;
 import ru.craftorium.craftoriumcustom.utils.HexUtil;
 
@@ -62,16 +60,8 @@ implements Listener {
             menu.open(player);
             return;
         }
-        if (slot == 3) {
-            PremDeathPlayerMenu menu = new PremDeathPlayerMenu(menuItems);
-            menu.open(player);
-            return;
-        }
-        if (slot == 4) {
-            PremDeathMeMenu menu = new PremDeathMeMenu(menuItems);
-            menu.open(player);
-            return;
-        }
+        // Banner navigation to DeathPlayer / DeathMe sections removed — the
+        // Premium tab now only contains pearl-particle effects.
         if (this.plugin.getConfig().contains("pearlparticles.items")) {
             for (String key : this.plugin.getConfig().getConfigurationSection("pearlparticles.items").getKeys(false)) {
                 String path = "pearlparticles.items." + key;
